@@ -1,4 +1,4 @@
-Hooks.once("preUpdateToken", () => { //Movement de-aiming
+Hooks.once("preUpdateToken", (token) => { //Movement de-aiming
     const lastPosX = token.x;
     const lastPosY = token.y;
     console.log("Beep got positions")
