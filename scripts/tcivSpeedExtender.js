@@ -11,7 +11,7 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
         getRanges(token) {
             const baseSpeed = token.actor.system.props.Speed
             let freeMove = 1;
-            if(token.actor.system.props.Mobile && token.actor.system.props.Agility > 1){
+            if(token.actor.system.props.Mobile == 1 && token.actor.system.props.Agility > 1){
                 freeMove = token.actor.system.props.Agility;
             }
 
