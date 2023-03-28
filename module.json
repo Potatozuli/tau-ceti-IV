@@ -13,7 +13,8 @@
       "verified": "10"
     },
     "scripts": [
-        "scripts/tcivSpeedExtender.js"
+        "scripts/tcivSpeedExtender.js",
+        "scripts/tcivDeAimer.js"
     ],
     "url": "https://github.com/Potatozuli/tau-ceti-iv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  

@@ -10,18 +10,17 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 
         getRanges(token) {
             const baseSpeed = token.actor.system.props.Speed
+            let freeMove = 1;
+            if(token.actor.system.props.Mobile && token.actor.system.props.Agility > 1){
+                freeMove = token.actor.system.props.Agility;
+            }
 
 			// A character can always walk it's base speed and dash twice it's base speed
 			const ranges = [
-				{range: 1, color: "Free"},
-				{range: baseSpeed + 1, color: "Move"},
-                {range: baseSpeed*2 + 1, color: "Movex2"}
+				{range: freeMove, color: "Free"},
+				{range: baseSpeed + freeMove, color: "Move"},
+                {range: baseSpeed*2 + freeMove, color: "Movex2"}
 			]
-
-			// Characters that aren't wearing armor are allowed to run with three times their speed
-			//if (!token.actor.data.isWearingArmor) {
-			//	ranges.push({range: baseSpeed * 3, color: "dash"})
-			//}
 
             return ranges
         }
