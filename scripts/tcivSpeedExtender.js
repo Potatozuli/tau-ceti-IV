@@ -14,8 +14,8 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 			// A character can always walk it's base speed and dash twice it's base speed
 			const ranges = [
 				{range: 1, color: "Free"},
-				{range: baseSpeed, color: "Move"},
-                {range: baseSpeed, color: "Movex2"}
+				{range: baseSpeed + 1, color: "Move"},
+                {range: baseSpeed*2 + 1, color: "Movex2"}
 			]
 
 			// Characters that aren't wearing armor are allowed to run with three times their speed
