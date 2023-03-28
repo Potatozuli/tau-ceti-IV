@@ -1,0 +1,19 @@
+{
+    "id": "tau-ceti-iv",
+    "title": "Tau Ceti IV",
+    "description": "A module for making other wacky systems of Tau Ceti IV work.",
+    "authors": [
+      {
+      "name": "Potatozuli"
+      }
+      ],
+    "version": "1.0.0",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "10"
+    },
+    "scripts": [
+        "scripts/tcivSpeedExtender.js"
+    ]
+
+  }
