@@ -1,5 +1,4 @@
 Hooks.on("combatRound", () => { //Updates for the start of combat rounds
-    console.log(canvas.tokens.placeables);
     for (changedToken of canvas.tokens.placeables){
         if(changedToken.actor.system.props.Stunned == 1 && Number(changedToken.actor.system.props.Current_Health) > 0){
             checkedToken.actor.update({"system.props.Stunned": 0});
@@ -7,6 +6,19 @@ Hooks.on("combatRound", () => { //Updates for the start of combat rounds
         }
         if(changedToken.actor.system.props.EnteredFire == 1){
             checkedToken.actor.update({"system.props.EnteredFire": 0});
+        }
+    }
+    for(let checkedTemplate of canvas.scene.templates){ //For all templates on scene
+        if(Tagger.hasTags(checkedTemplate, "Smoke, Fire", {matchAny: true})){ //For templates with either Smoke or Fire tag
+            let tags = Tagger.getTags(checkedTemplate); //Get tags
+            let roundsLeft = tags[1].replace(/\D/g, ''); //Find rounds left in second tag
+            Tagger.removeTags(checkedTemplate, `RoundsLeft: ${roundsLeft}`); //Removes previous RoundsLeft tag
+            roundsLeft--
+            if(roundsLeft == 0){
+                canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [checkedTemplate.id]); //Deletes template if out of time
+            } else {
+                Tagger.addTags(checkedTemplate, `RoundsLeft: ${roundsLeft}`);
+            }
         }
     }
 })
