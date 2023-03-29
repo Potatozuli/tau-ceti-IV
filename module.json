@@ -14,7 +14,8 @@
     },
     "scripts": [
         "scripts/tcivSpeedExtender.js",
-        "scripts/tcivDeAimer.js"
+        "scripts/tcivDeAimer.js",
+        "scripts/tcivEndofRound"
     ],
     "url": "https://github.com/Potatozuli/tau-ceti-iv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  
