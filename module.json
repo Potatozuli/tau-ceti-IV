@@ -1,13 +1,13 @@
 {
     "id": "tau-ceti-iv",
     "title": "Tau Ceti IV",
-    "description": "A module for making other wacky systems of Tau Ceti IV work.",
+    "description": "A module for making other wacky systems of Tau Ceti IV work. Beans",
     "authors": [
       {
       "name": "Potatozuli"
       }
       ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
