@@ -7,7 +7,7 @@
       "name": "Potatozuli"
       }
       ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
@@ -15,7 +15,7 @@
     "scripts": [
         "scripts/tcivSpeedExtender.js",
         "scripts/tcivDeAimer.js",
-        "scripts/tcivEndofRound"
+        "scripts/tcivEndofRound.js"
     ],
     "url": "https://github.com/Potatozuli/tau-ceti-iv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  
