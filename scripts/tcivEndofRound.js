@@ -12,17 +12,13 @@ Hooks.on("combatRound", () => { //Updates for the start of combat rounds
         if(Tagger.hasTags(checkedTemplate, "Smoke, Fire", {matchAny: true})){ //For templates with either Smoke or Fire tag
             let tags = Tagger.getTags(checkedTemplate); //Get tags
             let type = tags[0];
-            console.log(tags)
             let roundsLeft = tags[1].replace(/\D/g, ""); //Find rounds left in second tag
-            console.log(roundsLeft)
-            console.log(Tagger.getTags(checkedTemplate))
             roundsLeft--;
             if(roundsLeft == 0){
                 canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [checkedTemplate.id]); //Deletes template if out of time
             } else {
                 Tagger.setTags(checkedTemplate, [type, `RoundsLeft: ${roundsLeft}`]);
             }
-            console.log(Tagger.getTags(checkedTemplate))
         }
     }
 })
