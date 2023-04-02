@@ -7,12 +7,13 @@
       "name": "Potatozuli"
       }
       ],
-    "version": "1.0.10",
+    "version": "1.0.11",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
     },
     "scripts": [
+        "scripts/tcivFunctions.js",
         "scripts/tcivSpeedExtender.js",
         "scripts/tcivDeAimer.js",
         "scripts/tcivEndofRound.js"
