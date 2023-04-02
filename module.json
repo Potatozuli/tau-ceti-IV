@@ -7,16 +7,16 @@
       "name": "Potatozuli"
       }
       ],
-    "version": "1.0.12",
+    "version": "1.0.13",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
     },
     "esmodules": [
-        "scripts/tcivAttackB.js",
-        "scripts/tcivSpeedExtender.js",
-        "scripts/tcivDeAimer.js",
-        "scripts/tcivEndofRound.js"
+        "scripts/tcivAttackB.mjs",
+        "scripts/tcivSpeedExtender.mjs",
+        "scripts/tcivDeAimer.mjs",
+        "scripts/tcivEndofRound.mjs"
     ],
     "url": "https://github.com/Potatozuli/tau-ceti-iv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  
