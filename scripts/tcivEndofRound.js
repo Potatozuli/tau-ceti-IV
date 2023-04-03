@@ -1,8 +1,8 @@
 Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
     if(update.round > update.previous.round) { //Whenever the combat round number increases
         for (changedToken of canvas.tokens.placeables){ //For all tokens on scene
-            if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changeToken.document.disposition < 1) {
-                changeToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
+            if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changedToken.document.disposition < 1) {
+                changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
             }
             if(changedToken.actor.system.props.Stunned == 1 && Number(changedToken.actor.system.props.Current_Health) > 0){
                 changedToken.actor.update({"system.props.Stunned": 0}); //Removes stunned effect

@@ -1,11 +1,11 @@
 import {
     tcivAttackB
-} from "./scripts/tcivAttackB.mjs";
+} from "./functions/tcivAttackB.mjs";
 
-Hooks.once('ready', () => {
-    console.log("beep seting up")
+Hooks.once("setup", () => {
+    console.log("Tau Ceti IV Initializing")
     console.log(tcivAttackB)
-    game.modules.get("tau-ceti-iv").api = {
-        tcivAttackB
+    game.modules.get("taucetiiv").api = { 
+        tcivAttackB 
     }
 });
