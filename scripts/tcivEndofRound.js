@@ -1,5 +1,7 @@
 Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
     if(update.round) {
+        console.log(update)
+        console.log(update.round)
         for (changedToken of canvas.tokens.placeables){
             if(changedToken.actor.system.props.Stunned == 1 && Number(changedToken.actor.system.props.Current_Health) > 0){
                 changedToken.actor.update({"system.props.Stunned": 0});
