@@ -20,7 +20,7 @@
      "scripts/tcivDeAimer.js",
      "scripts/tcivEndofRound.js"
     ],
-    "url": "https://github.com/Potatozuli/tau-ceti-iv",
-    "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  
-    "download": "https://codeload.github.com/Potatozuli/tau-ceti-iv/zip/main"
+    "url": "https://github.com/Potatozuli/taucetiiv",
+    "manifest": "https://raw.githubusercontent.com/Potatozuli/taucetiiv/main/module.json",  
+    "download": "https://codeload.github.com/Potatozuli/taucetiiv/zip/main"
   }

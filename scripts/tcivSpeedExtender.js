@@ -26,5 +26,5 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
         }
     }
 
-    dragRuler.registerModule("tau-ceti-iv", tcIVSpeedExtender)
+    dragRuler.registerModule("taucetiiv", tcIVSpeedExtender)
 })
