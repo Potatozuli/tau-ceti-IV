@@ -4,16 +4,21 @@
     "description": "A module for making other wacky systems of Tau Ceti IV work. Beans",
     "authors": [
       {
-      "name": "Potatozuli"
+        "name": "Potatozuli"
       }
       ],
-    "version": "1.0.20",
+    "version": "1.0.22",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
     },
     "esmodules": [
         "tcivSetup.mjs"
+    ],
+    "scripts": [
+     "scripts/tcivSpeedExtender.js",
+     "scripts/tcivDeAimer.js",
+     "scripts/tcivEndofRound.js"
     ],
     "url": "https://github.com/Potatozuli/tau-ceti-iv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/tau-ceti-iv/main/module.json",  
