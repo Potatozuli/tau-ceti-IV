@@ -5,7 +5,5 @@ import {
 Hooks.once("setup", () => {
     console.log("Tau Ceti IV Initializing")
     console.log(tcivAttackB)
-    game.modules.get("taucetiiv").api = { 
-        tcivAttackB 
-    }
+    game.modules.get("taucetiiv").api = tcivAttackB
 });
