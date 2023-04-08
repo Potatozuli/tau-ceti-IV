@@ -1,5 +1,5 @@
 Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
-    if(updates.x ?? updates.y){ //If the player has moved
+    if((updates.x ?? updates.y) && (token.actor.system.props.IsAimed == 1)){ //If the player has moved
         const aimPosX = Number(token.actor.system.props.Aimed_X);
         const aimPosY = Number(token.actor.system.props.Aimed_Y);
         const newPosX = updates.x ?? token.x;
@@ -10,10 +10,13 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         }
 
         let waypointArray = [...token.combatant.flags.dragRuler.passedWaypoints, {x: newPosX, y: newPosY}]; //Puts all points in an array
+        console.log(waypointArray)
         let distMoved = 0;
         for(let i = waypointArray.length-1; i >= 1; i--){ //For every drag ruler waypoint, from end to start
             distMoved += Math.floor(Math.hypot(waypointArray[i].x - waypointArray[i-1].x, waypointArray[i].y - waypointArray[i-1].y)/canvas.grid.size); //Add distance from last point
+            console.log(distMoved)
             if(waypointArray[i].x == aimPosX && waypointArray[i].y == aimPosY){
+                console.log("beep");
                 break; //If the current dragruler waypoint is equal to the aimed position (Indicating that that's where the player Aimed last), break out
             }
         }
