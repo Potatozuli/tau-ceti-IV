@@ -2,10 +2,10 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
     if((updates.x ?? updates.y) && (token.actor.system.props.IsAimed == 1)){ //If the player has moved
         const aimPosX = Number(token.actor.system.props.Aimed_X);
         const aimPosY = Number(token.actor.system.props.Aimed_Y);
-        let newPosX = updates.center.x ?? token.center.x;
-        let newPosY = updates.center.y ?? token.center.y;
-        //newPosX += canvas.grid.size/2; //Makes updated positions in the center
-        //newPosY += canvas.grid.size/2;
+        let newPosX = updates.x ?? token.x;
+        let newPosY = updates.y ?? token.y;
+        newPosX += canvas.grid.size/2; //Makes updated positions in the center
+        newPosY += canvas.grid.size/2;
         let freeMove = 1;
         if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
             freeMove = Number(token.actor.system.props.Agility); //Sets freeMove to Agility if actor has the Mobile trait
