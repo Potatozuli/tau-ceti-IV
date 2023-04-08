@@ -3,7 +3,9 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         const aimPosX = Number(token.actor.system.props.Aimed_X);
         const aimPosY = Number(token.actor.system.props.Aimed_Y);
         let newPosX = updates.x ?? token.x;
+        console.log(updates.x)
         let newPosY = updates.y ?? token.y;
+        console.log(updates.y)
         newPosX += canvas.grid.size/2; //Makes updated positions in the center
         newPosY += canvas.grid.size/2;
         let freeMove = 1;
