@@ -17,10 +17,10 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
                 break; //If the current dragruler waypoint is equal to the aimed position (Indicating that that's where the player Aimed last), break out
             }
         }
-
+        console.log(distMoved)
         if(distMoved > freeMove){
             token.actor.update({"system.props.IsAimed": 0}); //De-aims player if they move more than free movement from last aimed point
-            warpgate.mutate(canvas.tokens.get(atoken.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
+            warpgate.mutate(canvas.tokens.get(token.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
             ui.notifications.info("Lost aim from movement!");
         }
     }
