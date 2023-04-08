@@ -13,7 +13,7 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         console.log(waypointArray)
         let distMoved = 0;
         for(let i = waypointArray.length-1; i >= 1; i--){ //For every drag ruler waypoint, from end to start
-            distMoved += Math.floor(Math.hypot(waypointArray[i].x - waypointArray[i-1].x, waypointArray[i].y - waypointArray[i-1].y)/canvas.grid.size); //Add distance from last point
+            distMoved += Math.floor(Math.hypot(waypointArray[i].x - waypointArray[i-1].x + canvas.grid.size/2, waypointArray[i].y - waypointArray[i-1].y + canvas.grid.size/2)/canvas.grid.size); //Add distance from last point
             console.log(distMoved)
             console.log(waypointArray[i].x)
             if(waypointArray[i].x == aimPosX && waypointArray[i].y == aimPosY){
