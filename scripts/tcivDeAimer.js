@@ -15,6 +15,7 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         for(let i = waypointArray.length-1; i >= 1; i--){ //For every drag ruler waypoint, from end to start
             distMoved += Math.floor(Math.hypot(waypointArray[i].x - waypointArray[i-1].x, waypointArray[i].y - waypointArray[i-1].y)/canvas.grid.size); //Add distance from last point
             console.log(distMoved)
+            console.log(waypointArray[i].x)
             if(waypointArray[i].x == aimPosX && waypointArray[i].y == aimPosY){
                 console.log("beep");
                 break; //If the current dragruler waypoint is equal to the aimed position (Indicating that that's where the player Aimed last), break out
