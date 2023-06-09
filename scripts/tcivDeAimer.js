@@ -33,7 +33,9 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         const distMoved = Math.floor(Math.hypot(token.x - updates.x, token.y - updates.y)/canvas.grid.size);
         if(distMoved > freeMove){
             token.actor.update({"system.props.IsAimed": 0}); //De-aims player if they move more than free movement from last aimed point
-            warpgate.mutate(canvas.tokens.get(token.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
+            if(token.actor.system.props.Aimed_Target) {
+                warpgate.mutate(canvas.tokens.get(token.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
+            }
             ui.notifications.info("Lost aim from movement!");
         }
     }
