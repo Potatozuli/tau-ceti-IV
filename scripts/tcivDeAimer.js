@@ -1,5 +1,9 @@
 Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
     if((updates.x ?? updates.y) && (token.actor.system.props.IsAimed == 1)){ //If the player has moved
+        let freeMove = 1;
+        if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
+            freeMove = Number(token.actor.system.props.Agility); //Sets freeMove to Agility if actor has the Mobile trait
+        }
         // const aimPosX = Number(token.actor.system.props.Aimed_X);
         // const aimPosY = Number(token.actor.system.props.Aimed_Y);
         // const lastPosX = token.x + canvas.grid.size/2; //Get last position of token
@@ -11,10 +15,8 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         // newPosX += canvas.grid.size/2; //Makes updated positions in the center
         // newPosY += canvas.grid.size/2;
         
-        // let freeMove = 1;
-        // if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
-        //     freeMove = Number(token.actor.system.props.Agility); //Sets freeMove to Agility if actor has the Mobile trait
-        // }
+        
+
         // //Actually check if free movement has been used yet and other movement
 
         // let waypointArray = [...token.combatant.flags.dragRuler.passedWaypoints, {x: lastPosX, y: lastPosY}, {x: newPosX, y: newPosY}]; //Puts all points in an array
