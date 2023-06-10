@@ -7,7 +7,7 @@
         "name": "Potatozuli"
       }
       ],
-    "version": "1.3.0",
+    "version": "1.4.0",
     "compatibility": {
       "minimum": "10",
       "verified": "10"
@@ -18,7 +18,8 @@
     "scripts": [
      "scripts/tcivSpeedExtender.js",
      "scripts/tcivDeAimer.js",
-     "scripts/tcivEndofRound.js"
+     "scripts/tcivEndofRound.js",
+     "scripts/tcivTimeIncrementer.js"
     ],
     "url": "https://github.com/Potatozuli/taucetiiv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/taucetiiv/main/module.json",  
