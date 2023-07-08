@@ -32,6 +32,10 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         //     }
         // }
         // console.log(distMoved)
+        console.log(updates.x)
+        console.log(updates.y)
+        console.log(token.x)
+        console.log(token.y)
         const distMoved = Math.floor(Math.hypot(token.x - updates.x, token.y - updates.y)/canvas.grid.size);
         console.log(distMoved);
         if(distMoved > freeMove){
