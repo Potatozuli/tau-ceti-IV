@@ -1,7 +1,7 @@
 {
     "id": "taucetiiv",
     "title": "Tau Ceti IV",
-    "description": "A module for making other wacky systems of Tau Ceti IV work. Beans",
+    "description": "A module for making other wacky systems of Tau Ceti IV work.",
     "authors": [
       {
         "name": "Potatozuli"
@@ -18,8 +18,7 @@
     "scripts": [
      "scripts/tcivSpeedExtender.js",
      "scripts/tcivDeAimer.js",
-     "scripts/tcivEndofRound.js",
-     "scripts/tcivTimeIncrementer.js"
+     "scripts/tcivEndofRound.js"
     ],
     "url": "https://github.com/Potatozuli/taucetiiv",
     "manifest": "https://raw.githubusercontent.com/Potatozuli/taucetiiv/main/module.json",  
