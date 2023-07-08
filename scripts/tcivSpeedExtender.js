@@ -9,13 +9,12 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
         }
 
         getRanges(token) {
-            const baseSpeed = token.actor.system.props.Speed
+            const baseSpeed = Number(token.actor.system.props.Speed)
             let freeMove = 1;
             if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
                 freeMove = Number(token.actor.system.props.Agility);
             }
 
-			// A character can always walk it's base speed and dash twice it's base speed
 			const ranges = [
 				{range: freeMove, color: "Free"},
 				{range: (baseSpeed + freeMove), color: "Move"},
