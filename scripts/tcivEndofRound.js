@@ -3,7 +3,7 @@ Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
         for (changedToken of canvas.tokens.placeables){ //For all tokens on scene
             if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changedToken.document.disposition < 1 && changedToken.inCombat == true) {
                 changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
-                changedToken.delete();
+                canvas.scene.deleteEmbeddedDocuments("Token", changedToken.id)
             }
             if(changedToken.actor.system.props.Stunned == 1 && Number(changedToken.actor.system.props.Current_Health) > 0){
                 changedToken.actor.update({"system.props.Stunned": 0}); //Removes stunned effect

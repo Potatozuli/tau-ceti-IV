@@ -35,7 +35,6 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         let newPosX = updates.x ?? token.x; //Get new position of token
         let newPosY = updates.y ?? token.y;
         const distMoved = Math.floor(Math.hypot(token.x - newPosX, token.y - newPosY)/canvas.grid.size);
-        console.log(distMoved);
         if(distMoved > freeMove){
             console.log("beep")
             token.actor.update({"system.props.IsAimed": 0}); //De-aims player if they move more than free movement from last aimed point
