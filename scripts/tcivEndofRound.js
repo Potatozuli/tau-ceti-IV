@@ -3,11 +3,10 @@ Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
         for (changedToken of canvas.tokens.placeables){ //For all tokens on scene
             if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changedToken.document.disposition < 1 && changedToken.inCombat == true) {
                 changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
-                canvas.scene.deleteEmbeddedDocuments("Token", changedToken.id)
+                canvas.scene.deleteEmbeddedDocuments("Token", [changedToken.id])
             }
-            if(changedToken.actor.system.props.Stunned == 1 && Number(changedToken.actor.system.props.Current_Health) > 0){
+            if(changedToken.actor.system.props.Stunned > 0 && Number(changedToken.actor.system.props.Current_Health) > 0){
                 changedToken.actor.update({"system.props.Stunned": 0}); //Removes stunned effect
-                changedToken.toggleEffect("icons/svg/blind.svg", {active: false, overlay: true});
             }
             if(changedToken.actor.system.props.EnteredFire == 1){
                 changedToken.actor.update({"system.props.EnteredFire": 0});
