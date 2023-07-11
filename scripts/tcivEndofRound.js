@@ -1,6 +1,5 @@
-Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
-    console.log(update)
-    if(update.round > update.previous.round) { //Whenever the combat round number increases
+Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
+    if(combat.round > combat.previous.round) { //Whenever the combat round number increases
         for (changedToken of canvas.tokens.placeables){ //For all tokens on scene
             if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changedToken.document.disposition < 1 && changedToken.inCombat == true) {
                 changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
@@ -26,5 +25,11 @@ Hooks.on("updateCombat", (update) => { //Updates for the start of combat rounds
                 }
             }
         }
+        
+        //Initiative setting
+        for (combatant of combat.turns){
+            combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
+        }
     }
+
 });
