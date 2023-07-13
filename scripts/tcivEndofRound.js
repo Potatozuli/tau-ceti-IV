@@ -5,8 +5,12 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
                 changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
                 canvas.scene.deleteEmbeddedDocuments("Token", [changedToken.id])
             }
-            if(changedToken.actor.system.props.Stunned > 0 && Number(changedToken.actor.system.props.Current_Health) > 0){
-                changedToken.actor.update({"system.props.Stunned": 0}); //Removes stunned effect
+            if(changedToken.actor.effects.size > 0){ //If token has effects on it 
+                for(let eff of changedToken.actor.effects){
+                    if(eff.duration.remaining = 0){ //If effect has no more time left on it, clear it 
+                        changedToken.actor.deleteEmbeddedDocuments("ActiveEffect", eff);
+                    }
+                }
             }
             if(changedToken.actor.system.props.EnteredFire == 1){
                 changedToken.actor.update({"system.props.EnteredFire": 0});
