@@ -5,13 +5,6 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
                 changedToken.combatant.delete(); //Deletes a combatant if it is dead and an enemy
                 canvas.scene.deleteEmbeddedDocuments("Token", [changedToken.id])
             }
-            if(changedToken.actor.effects.size > 0){ //If token has effects on it 
-                for(let eff of changedToken.actor.effects){
-                    if(eff.duration.remaining = 0){ //If effect has no more time left on it, clear it 
-                        changedToken.actor.deleteEmbeddedDocuments("ActiveEffect", eff);
-                    }
-                }
-            }
             if(changedToken.actor.system.props.EnteredFire == 1){
                 changedToken.actor.update({"system.props.EnteredFire": 0});
             }
