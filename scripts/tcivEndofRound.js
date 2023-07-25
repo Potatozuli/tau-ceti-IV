@@ -1,4 +1,5 @@
-Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
+Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
+    if(game.user.isGM){
     if(combat.round > combat.previous.round) { //Whenever the combat round number increases
         for (changedToken of canvas.tokens.placeables){ //For all tokens on scene
             if(Number(changedToken.actor.system.props.Current_Health) <= 0 && changedToken.document.disposition < 1 && changedToken.inCombat == true) {
@@ -27,7 +28,7 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
         //for (combatant of combat.turns){
             //combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
         //}
-        
-        combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}) //Clears dragruler waypoints on turn
+    }
+    combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}) //Clears dragruler waypoints on turn
     }
 });
