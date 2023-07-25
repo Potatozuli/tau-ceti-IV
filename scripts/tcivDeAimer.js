@@ -1,9 +1,5 @@
 Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
     if((updates.x ?? updates.y) && (token.actor.system.props.IsAimed == 1)){ //If the player has moved
-        let freeMove = 1;
-        if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
-            freeMove = Number(token.actor.system.props.Agility); //Sets freeMove to Agility if actor has the Mobile trait
-        }
         // const aimPosX = Number(token.actor.system.props.Aimed_X);
         // const aimPosY = Number(token.actor.system.props.Aimed_Y);
         // const lastPosX = token.x + canvas.grid.size/2; //Get last position of token
@@ -35,8 +31,7 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         let newPosX = updates.x ?? token.x; //Get new position of token
         let newPosY = updates.y ?? token.y;
         const distMoved = Math.floor(Math.hypot(token.x - newPosX, token.y - newPosY)/canvas.grid.size);
-        if(distMoved > freeMove){
-            console.log("beep")
+        if(distMoved > token.actor.system.props.Speed){
             token.actor.update({"system.props.IsAimed": 0}); //De-aims player if they move more than free movement from last aimed point
             if(canvas.scene.tokens.get(token.actor.system.props.Aimed_Target) !== undefined){
                 warpgate.mutate(canvas.tokens.get(token.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
