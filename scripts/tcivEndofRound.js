@@ -25,7 +25,8 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
         
         //Initiative setting
         for (combatant of combat.turns){
-            combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
+            //combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
+            combatant.update({activations: 2});
         }
     }
 
