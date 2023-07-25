@@ -24,11 +24,10 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat rounds
         }
         
         //Initiative setting
-        for (combatant of combat.turns){
-            console.log("boop")
+        //for (combatant of combat.turns){
             //combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
-            combatant.update({flags: {"lancer-initiative": {"activations": {"max": 1}}}});
-        }
+        //}
+        
+        combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}) //Clears dragruler waypoints on turn
     }
-
 });
