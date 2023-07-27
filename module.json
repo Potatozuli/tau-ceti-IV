@@ -17,7 +17,6 @@
     ],
     "scripts": [
      "scripts/tcivSpeedExtender.js",
-     "scripts/tcivDeAimer.js",
      "scripts/tcivEndofRound.js"
     ],
     "url": "https://github.com/Potatozuli/taucetiiv",

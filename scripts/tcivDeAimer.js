@@ -28,16 +28,16 @@ Hooks.on("preUpdateToken", (token, updates) => { //Movement de-aiming
         //     }
         // }
         // console.log(distMoved)
-        let newPosX = updates.x ?? token.x; //Get new position of token
-        let newPosY = updates.y ?? token.y;
-        const distMoved = Math.floor(Math.hypot(token.x - newPosX, token.y - newPosY)/canvas.grid.size);
-        console.log(distMoved)
-        if(distMoved > token.actor.system.props.Speed){
+        // let newPosX = updates.x ?? token.x; //Get new position of token
+        // let newPosY = updates.y ?? token.y;
+        // const distMoved = Math.floor(Math.hypot(token.x - newPosX, token.y - newPosY)/canvas.grid.size);
+        // console.log(distMoved)
+        // if(distMoved > token.actor.system.props.Speed){
             token.actor.update({"system.props.IsAimed": 0}); //De-aims player if they move more than free movement from last aimed point
             if(canvas.scene.tokens.get(token.actor.system.props.Aimed_Target) !== undefined){
                 warpgate.mutate(canvas.tokens.get(token.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
             }
             ui.notifications.info("Lost aim from movement!");
-        }
+        // }
     }
 });
