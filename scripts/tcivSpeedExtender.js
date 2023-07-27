@@ -4,7 +4,7 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
             return [
                 //{id: "Free", default: 0x00FF00, name: "tcIV.speeds.Free"},
                 {id: "Move", default: 0xFFFF00, name: "tcIV.speeds.Move"},
-                {id: "Dash", default: 0xFF8000, name: "tcIV.speeds.Movex2"}
+                {id: "Dash", default: 0xFF8000, name: "tcIV.speeds.Dash"}
             ]
         }
 
