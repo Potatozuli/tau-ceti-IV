@@ -32,11 +32,14 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
         for(changedCombatant of combat.combatants){
             if(changedCombatant.resource <= 0){
                 changedCombatant.update({"defeated": true});
+                if(canvas.scene.tokens.get(changedCombatant.actor.system.props.Aimed_Target) !== undefined){
+                    warpgate.mutate(canvas.tokens.get(changedCombatant.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
+                }
             }
         }
 
         combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}); //Clears dragruler waypoints on turn
-        if(combat.combatant.actor.Stance == "Dashing"){
+        if(combat.combatant.actor.system.props.Stance == "Dashing"){
             combat.combatant.actor.update({"system.props.Stance": "Standing"}); //Sets stance to Standing if was Dashing
         }
 
