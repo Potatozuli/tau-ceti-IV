@@ -29,9 +29,16 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
                 //combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
             //}
         }
+        for(changedCombatant of combatants){
+            if(changedCombatant.resource <= 0){
+                changedCombatant.update({"defeated": true});
+            }
+        }
+
         combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}); //Clears dragruler waypoints on turn
         if(combat.combatant.actor.Stance == "Dashing"){
             combat.combatant.actor.update({"system.props.Stance": "Standing"}); //Sets stance to Standing if was Dashing
         }
+
     }
 });
