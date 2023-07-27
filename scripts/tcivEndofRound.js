@@ -29,7 +29,7 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
                 //combatant.update({initiative: combatant.token.disposition}); //Updates token's initiative with its disposition
             //}
         }
-        for(changedCombatant of combatants){
+        for(changedCombatant of combat.combatants){
             if(changedCombatant.resource <= 0){
                 changedCombatant.update({"defeated": true});
             }
