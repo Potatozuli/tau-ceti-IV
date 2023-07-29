@@ -34,7 +34,7 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
         }
 
         for(let effect of combat.combatant.actor.effects){ //Deletes stunned, blind, and deaf effects 
-            if(effect.label == "Stunned" || effect.label == "Blind" || effect.label == "Deaf") combat.combatant.actor.deleteEmbeddedDocuments("ActiveEffect", [effect.id])
+            if(effect.name == "Stunned" || effect.name == "Blind" || effect.name == "Deaf") combat.combatant.actor.deleteEmbeddedDocuments("ActiveEffect", [effect.id])
         }
         if(combat.combatant.flags.dragRuler.passedWaypoints.length > 0) combat.combatant.update({flags: {dragRuler: {passedWaypoints: []}}}); //Clears dragruler waypoints on turn
         if(combat.combatant.actor.system.props.Stance == "Dashing"){
