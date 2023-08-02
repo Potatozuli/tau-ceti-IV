@@ -25,11 +25,11 @@ Hooks.on("updateCombat", (combat) => { //Updates for the start of combat round
             }
         }
         for(changedCombatant of combat.combatants){
-            if(changedCombatant.resource <= 0){
-                if(canvas.scene.tokens.get(changedCombatant.actor.system.props.Aimed_Target) !== undefined){
-                    warpgate.mutate(canvas.tokens.get(changedCombatant.actor.system.props.Aimed_Target).document, {token: {overlayEffect: ""}}, {permanent: true, alwaysAccept: true}); //Removes aimed symbol from previous target
-                }
-                if(changedCombatant.disposition <= 0) changedToken.combatant.token.delete(); //Deletes a combatant if it is dead and an enemy
+            if(changedCombatant.resource <= 0 && changedCombatant.disposition <= 0){ //if it is dead and an enemy
+                if(canvas.scene.tokens.get(atoken.actor.system.props.Aimed_Target) !== undefined){ //De-Aiming 
+                    let aimedEffect = canvas.scene.tokens.get(atoken.actor.system.props.Aimed_Target).actor.effects.find((i) => i.flags.aimedActor == atoken.id);
+                    canvas.scene.tokens.get(atoken.actor.system.props.Aimed_Target).actor.deleteEmbeddedDocuments("ActiveEffect", [aimedEffect.id])
+                } 
             }
         }
 
