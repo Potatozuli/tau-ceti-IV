@@ -4,21 +4,19 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
             return [
                 //{id: "Free", default: 0x00FF00, name: "tcIV.speeds.Free"},
                 {id: "Move", default: 0xFFFF00, name: "tcIV.speeds.Move"},
-                {id: "Dash", default: 0xFF8000, name: "tcIV.speeds.Dash"}
+                {id: "Dash", default: 0xFF8000, name: "tcIV.speeds.Dash"},
+                {id: "Dash", default: 0xFF8000, name: "tcIV.speeds.Dashx2"}
             ]
         }
 
         getRanges(token) {
             const baseSpeed = Number(token.actor.system.props.Speed)
-            //let freeMove = 1;
-            //if(token.actor.system.props.Mobile == 1 && Number(token.actor.system.props.Agility) > 1){
-            //    freeMove = Number(token.actor.system.props.Agility);
-            //}
 
 			const ranges = [
 				//{range: freeMove, color: "Free"},
-				{range: (baseSpeed), color: "Move"},
-                {range: (baseSpeed + 5), color: "Dash"}
+				{range: (Math.floor(baseSpeed/2)), color: "Move"},
+                {range: (baseSpeed*2), color: "Dash"},
+                {range: (Math.floor((baseSpeed*2.5)/2)), color: "Dashx2"},
 			]
 
             return ranges
