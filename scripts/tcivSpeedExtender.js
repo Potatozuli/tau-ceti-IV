@@ -14,9 +14,9 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 
 			const ranges = [
 				//{range: freeMove, color: "Free"},
-				{range: (Math.ceil((baseSpeed*2)/2)), color: "Move"},
-                {range: (Math.ceil((baseSpeed*4)/2)), color: "Dash"},
-                {range: (Math.ceil((baseSpeed*5)/2)), color: "Dashx2"},
+				{range: baseSpeed + (baseSpeed % 2), color: "Move"},
+                {range: baseSpeed*2 + + (baseSpeed % 2), color: "Dash"},
+                {range: Math.floor(baseSpeed*2.5) + (Math.floor(baseSpeed*2.5) % 2), color: "Dashx2"},
 			]
 
             return ranges
